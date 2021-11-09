@@ -1,0 +1,99 @@
+<!-- <!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Profesores</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='profesores.component.css'>
+    <script src='main.js'></script>
+</head>
+
+<body>
+    <div class="container-fluid position-absolute">
+
+        <div align="center">
+            <br> <br>
+            <div *ngIf="tablaentera==true" class="wrapper">
+                <table class="table">
+                    <thead>
+                        <h2>Profesores</h2>
+                        <tr>
+                            <th>Profesores</th>
+                            <th>Area</th>
+                            <th>Edad</th>
+                            <th>Fecha Nacimiento</th>
+                            <th>Sexo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let profesor of profesorestab">
+                            <td>{{profesor.profesores}}</td>
+                            <td>{{profesor.area}}</td>
+                            <td>{{profesor.edad}}</td>
+                            <td>{{profesor.nacimiento}}</td>
+                            <td>{{profesor.sexo}}</td>
+                            <button (click)="ConsultarporIds(profesor.profesores)">Modificar</button>
+                            <td><button (click)="EliminarProfesores(profesor.id)">Eliminar</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br><br><br><br><br>
+                <button (click)="ir()">Insertar Profesores</button>
+                <!-- <button (click)="InsertarProfesores()">Insertar Profesor</button> -->
+            <!-- </div>
+            <br><br><br><br><br>
+            <div *ngIf="formVisibility==true" class="wrapper">
+                <div *ngIf="letreroInsertar==true" class="wrapper">
+                    <h1 align="center"> Insertar Profesor </h1>
+                </div>
+                <div *ngIf="letreroModificar==true" class="wrapper">
+                    <h1 align="center"> Modificar Profesor </h1>
+                </div>
+            </div>
+            <div *ngIf="idModificar==true" class="wrapper">
+                <input [(ngModel)]="id" name="id" type="number" class="text">
+            </div>
+            <label> Nombre del Profesor: </label>
+            &nbsp;&nbsp;&nbsp;
+            <input [(ngModel)]="textProfesor" name="textProfesor" type="text" class="text">
+            <br> <br>
+            <label> Contraseña: </label>
+            <input [(ngModel)]="textArea" name="textArea" type="text" class="text">
+            <br> <br>
+            <label> Edad: </label>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input [(ngModel)]="textEdad" name="textEdad" type="number" class="text">
+            <br> <br>
+            <label> Fecha Nacimiento: </label>
+            &nbsp;&nbsp;
+            <input [(ngModel)]="textNacimiento" name="textNacimiento" type="date" class="text">
+            <br> <br>
+            <label> Sexo: </label>
+            &nbsp;&nbsp;
+            <select name="seleccionados" [(ngModel)]="seleccionados">
+                <option value="1"> Masculino </option>
+                <option value="0"> Femenino </option>
+            </select>
+            <br> <br>
+            <div *ngIf="botonAceptarInsertar==true" class="wrapper">
+                <button (click)="InsertarProfesor()">Aceptar</button>
+                &nbsp;
+                <button (click)="regresar()">Cancelar</button>
+            </div>
+            <div *ngIf="botonAceptarModificar==true" class="wrapper">
+                <button (click)="ModificarProfesor()">Modificar</button>
+                &nbsp;
+                <button (click)="regresar()">Cancelar Modificar</button>
+            </div>
+            <div>
+                <button (click)="aparecer()">ASAFASFAF</button>
+                <br> <br>
+                <app-compartido *ngIf="mostrarLabel"></app-compartido>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html> --> -->

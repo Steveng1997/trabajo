@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Profesores</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='../css/profesores.component.css'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous" />
+    <script src='main.js'></script>
+</head>
+
+<body>
+    <div class="container-fluid position-absolute">
+
+        <div align="center">
+            <br> <br>
+            <label> Profesores: </label>
+            <input type="text" placeholder="Busqueda" #txtSearch (keyup)="onSearchProfesores(txtSearch.value)">
+            &nbsp;&nbsp;
+
+            <!-- Area -->
+
+            <label>Area:</label>
+            &nbsp;&nbsp;
+            <input type="text" placeholder="Busqueda" #txtArea (keyup)="onSearchArea(txtArea.value)">
+            <!-- <input type="text" (keyup)="onSearchEdad($event.key)" placeholder="Busqueda"> -->
+            &nbsp;&nbsp;
+
+            <!-- Edad -->
+
+            <label>Edad:</label>
+            &nbsp;&nbsp;
+            <input type="number" placeholder="Busqueda" #txtEdad (keyup)="onSearchEdad(txtEdad.value)">
+            <!-- <input type="text" (keyup)="onSearchEdad($event.key)" placeholder="Busqueda"> -->
+            <br> <br>
+
+            <!-- botones -->
+            <button class="btn btn-primary" (click)="prevPage()">Anteriores</button>
+            &nbsp;&nbsp;
+            <button class="btn btn-primary" (click)="nextPage()"
+                [disabled]="(profesorestab | filtropro:page).length === 0">Siguiente</button>
+            <br><br><br>
+            <table class="table">
+                <div align="center">
+                    <h2>Profesores</h2>
+                    <thead>
+                        <tr>
+                            <th>Profesores</th>
+                            &nbsp;&nbsp;
+                            <th>Area</th>
+                            &nbsp;&nbsp;
+                            <th>Edad</th>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <th>Fecha Nacimiento</th>
+                            &nbsp;&nbsp;
+                            <th>Sexo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr
+                            *ngFor="let profesor of profesorestab|filtropro:page">
+                            <td>{{profesor.profesores}}</td>
+                            &nbsp;&nbsp;
+                            <td>{{profesor.area}}</td>
+                            &nbsp;&nbsp;
+                            <td>{{profesor.edad}}</td>
+                            &nbsp;&nbsp;
+                            <td>{{profesor.nacimiento}}</td>
+                            &nbsp;&nbsp;
+                            <td>{{profesor.sexo ? "Hombre" : "Mujer"}}</td>
+                            <button (click)="ConsultarporIds(profesor.profesores)">Modificar</button>
+                            <td><button (click)="EliminarProfesores(profesor.id)">Eliminar</button></td>
+                        </tr>
+                    </tbody>
+                </div>
+            </table>
+            <br><br>
+            <button (click)="ir()">Insertar Profesores</button>
+            <div>
+                <br>
+                <button align="center" (click)="aparecer()">Mostrar</button>
+                <div *ngIf="ocultarLabel">
+                    <button align="center" (click)="ocultar()">Ocultar</button>
+                </div>
+                <br> <br>
+                <app-compartido *ngIf="mostrarLabel"></app-compartido>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,187 @@
+// import { Component, OnInit } from '@angular/core';
+// import { Router } from '@angular/router';
+// import { Profesor } from './model/profesor.model';
+// import { ProfesoresService } from './profesores.service';
+
+// @Component({
+//   selector: 'app-profesores',
+//   templateUrl: './profesores.component.html',
+//   styleUrls: ['./profesores.component.css']
+// })
+// export class ProfesoresComponent implements OnInit {
+  
+//   public mostrarLabel = false;
+
+//   public formVisibility = false;
+//   public tablaentera = true;
+//   public botonAceptarInsertar = false;
+//   public letreroInsertar = false;
+//   public letreroModificar = false;
+//   public botonAceptarModificar = false;
+//   public idModificar = false;
+
+//   //Consultar
+//   profesorss: string = "";
+//   ConsultarporId: any = [];
+
+//   //Llena tabla
+//   profesorestab: any = [];
+
+//   //Filtrar
+//   datoProfesor: any = [];
+
+//   //Insertar
+//   insertarProfesor: any = [];
+//   textProfesor = "";
+//   textArea = "";
+//   textEdad = "";
+//   textNacimiento = "";
+//   profesores: any = [];
+//   area: any = [];
+//   edad: any = [];
+//   nacimiento: any = [];
+//   seleccionados: string[] = [];
+//   completo = "Registro Completo";
+
+//   //Modificar
+//   modificarProfesor: any = [];
+//   id: any = [];
+//   ids: number = 0;
+
+//   //Eliminar
+//   eliminarDatos: any = [];
+
+//   //Formulario
+
+//   constructor(private router: Router,
+//     public profesoresService: ProfesoresService,) {
+//     this.procesos();
+
+//     if (this.textProfesor != "") {
+//       this.insertarProfesor();
+//     }
+
+//     if (this.id != 0) {
+//       this.EliminarProfesores(this.id);
+//     }
+
+//     if (this.id != 0) {
+//       this.ModificarProfesor();
+//     }
+//   }
+
+//   ngOnInit(): void { }
+
+//   ir(){
+//     this.router.navigate(['insert']);
+//   }
+
+//   procesos() {
+//     this.cargarProfesores();
+//   }
+
+//   InsertarProfesores() {
+//     this.formVisibility = true;
+//     this.tablaentera = false;
+//     this.botonAceptarInsertar = true;
+//     this.letreroInsertar = true;
+//     this.letreroModificar = false;
+//     this.botonAceptarModificar = false;
+//     this.idModificar = false;
+//   }
+
+//   ModificarProfesores() {
+//     this.formVisibility = true;
+//     this.tablaentera = false;
+//     this.botonAceptarInsertar = false;
+//     this.letreroInsertar = false;
+//     this.letreroModificar = true;
+//     this.botonAceptarModificar = true;
+//     this.idModificar = true;
+//     console.log("usuario es: ", this.id);
+//   }
+
+//   ConsultarporIds(profesores: string) {
+//     this.profesoresService.getProfesoresByUno(profesores).subscribe((profesor: Profesor) => {
+//       this.seleccionados = [];
+//       this.ConsultarporId = profesor;
+//       this.textProfesor = profesor.profesores;
+//       this.textArea = profesor.area;
+//       this.textEdad = profesor.edad.toString();
+//       this.textNacimiento = profesor.nacimiento.toString();
+//       this.seleccionados.push(profesor.sexo ? "1" : "0");
+//       this.formVisibility = true;
+//       console.log("profesor es : ", this.ConsultarporId)
+//     });
+//   }
+
+//   EliminarProfesores(id: number) {
+//     this.profesoresService.deleteProfesores(id).subscribe(() => {
+//       this.eliminarDatos = delete (this.eliminarDatos);
+//       this.procesos();
+//     });
+//   }
+
+//   InsertarProfesor() {
+//     this.profesoresService.postProfesores({ profesores: this.textProfesor, area: this.textArea, edad: this.textEdad, nacimiento: this.textNacimiento, sexo: this.seleccionados }).subscribe((resultado: any) => {
+//       this.insertarProfesor = resultado;
+//       if (this.insertarProfesor) {
+//         alert(this.completo);
+//         this.textProfesor = "";
+//         this.textArea = "";
+//         this.textEdad = "";
+//         this.textNacimiento = "";
+//         this.formVisibility = false;
+//         this.tablaentera = true;
+//         this.botonAceptarInsertar = false;
+//         this.letreroInsertar = false;
+//         this.letreroModificar = false;
+//         this.botonAceptarModificar = false;
+//         this.idModificar = false;
+//         this.procesos();
+//       }
+//     });
+//   }
+
+//   ModificarProfesor() {
+//     this.profesoresService.putProfesores({ profesores: this.textProfesor, area: this.textArea, edad: this.textEdad, nacimiento: this.textNacimiento, sexo: this.seleccionados }, this.id).subscribe((resultadoPut: any) => {
+//       this.modificarProfesor = resultadoPut;
+//       this.procesos();
+//       if (this.modificarProfesor = true) {
+//         this.id = 0;
+//         this.textProfesor = "";
+//         this.textArea = "";
+//         this.textEdad = "";
+//         this.textNacimiento = "";
+//         this.textProfesor = "";
+//         this.textArea = "";
+//         this.textEdad = "";
+//         this.textNacimiento = "";
+//         this.formVisibility = false;
+//         this.tablaentera = true;
+//         this.botonAceptarInsertar = false;
+//         this.letreroInsertar = false;
+//         this.letreroModificar = false;
+//         this.botonAceptarModificar = false;
+//         this.idModificar = false;
+//       }
+//     });
+//   }
+
+//   cargarProfesores() {
+//     this.profesoresService.getProfesores().subscribe((resultado: any) => {
+//       this.profesorestab = resultado;
+//       this.datoProfesor = resultado;
+//     })
+//   }
+
+//   regresar() {
+//     this.tablaentera = true;
+//     this.botonAceptarInsertar = true;
+//     this.formVisibility = false;
+//   }
+
+//   aparecer() {
+//     this.mostrarLabel = true;
+//   }
+// }
