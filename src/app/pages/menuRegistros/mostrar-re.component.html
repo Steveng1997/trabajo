@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Profesores</title>
+    <link href='../menuRegistros/mostrar-re.component.css'>
+</head>
+
+<body>
+    <div class="container-fluid position-absolute">
+
+        <div align="center">
+            <br> <br>
+            <label> Nombre: </label>
+            <input type="text" placeholder="Busqueda" #txtSearch (keyup)="onSearchRegistros(txtSearch.value)">
+            &nbsp;&nbsp;
+
+            <!-- Empleo -->
+
+            <label>Contraseña:</label>
+            &nbsp;&nbsp;
+            <input type="text" placeholder="Busqueda" #txtcontrasena (keyup)="onSearchContrasena(txtcontrasena.value )">
+            &nbsp;&nbsp;
+
+            <!-- Edad -->
+
+            <label>Edad:</label>
+            &nbsp;&nbsp;
+            <input type="number" placeholder="Busqueda" #txtEdad (keyup)="onSearchEdad(txtEdad.value )">
+            <br><br>
+
+            <!-- botones -->
+            <button class="btn btn-primary" (click)="prevPage()">Anteriores</button>
+            &nbsp;&nbsp;
+            <button class="btn btn-primary" (click)="nextPage()"
+                [disabled]="(regitrotab | filtromen:page).length === 0">Siguientes</button>
+            <br><br><br>
+            <table class="table">
+                <div align="center">
+                    <h2>Tabla de los registros</h2>
+                    <thead>
+                        <tr>
+                            <th>Usuario</th>
+                            &nbsp;&nbsp;
+                            <th>Contraseña</th>
+                            &nbsp;&nbsp;
+                            <th>Edad</th>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <th>Fecha Nacimiento</th>
+                            &nbsp;&nbsp;
+                            <th>Genero</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr
+                            *ngFor="let registro of regitrotab|filtromen:page">
+                            <td>{{registro.nombre}}</td>
+                            &nbsp;&nbsp;
+                            <td>{{registro.contrasena}}</td>
+                            &nbsp;&nbsp;
+                            <td>{{registro.edad}}</td>
+                            &nbsp;&nbsp;
+                            <td>{{registro.fecha|date : "yyyy-MM-dd"}}</td>
+                            &nbsp;&nbsp;
+                            <td>{{registro.sexo ? "Hombre" : "Mujer"}}</td>
+                            <button (click)="ConsultarporIds(registro.id)">Modificar</button>
+                            <td><button (click)="EliminarProfesores(registro.id)">Eliminar</button></td>
+                        </tr>
+                    </tbody>
+                </div>
+            </table>
+            <br><br>
+            <button (click)="ir()">Insertar Profesores</button>
+            <div>
+                <br>
+                <button align="center" (click)="aparecer()">Mostrar</button>
+                <div *ngIf="ocultarLabel">
+                    <button align="center" (click)="ocultar()">Ocultar</button>
+                </div>
+                <br> <br>
+                <app-compartido *ngIf="mostrarLabel"></app-compartido>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

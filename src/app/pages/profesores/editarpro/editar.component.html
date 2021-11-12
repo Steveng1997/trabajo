@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Profesores</title>
+    <link href='../editarpro/editar.component.css'>
+</head>
+
+<body>
+    <div class="container-fluid position-absolute">
+        <h1 class="titulo">Modificar Profesor</h1>
+        <div align="center">
+            <label class="texto">Nombre del Profesor:</label>
+            <input class="cuadrotexto" [(ngModel)]="textProfesor" name="textProfesor" type="text">
+            <br><br>
+            <label class="texto">Area:</label>
+            <input class="cuadrotexto1" [(ngModel)]="textArea" name="textArea" type="text">
+            <br> <br>
+            <label class="texto">Edad:</label>
+            <input class="cuadrotexto2" [(ngModel)]="textEdad" name="textEdad" type="number">
+            <br> <br>
+            <label class="texto">Fecha Nacimiento:</label>
+            <input class="cuadrotexto3" [(ngModel)]="textNacimiento" name="textNacimiento" type="date">
+            <br> <br>
+            <label class="texto">Genero:</label>
+            <select class="cuadrotexto4" name="seleccionados" [(ngModel)]="seleccionados">
+                <option value=""> Selecciona </option>
+                <option value="1"> Hombre </option>
+                <option value="0"> Mujer </option>
+            </select>
+            <br><br>
+            <button class="botonAceptar" (click)="ModificarProfesor()">Modificar</button>
+            <button class="botonCancelar" (click)="regresar()">Regresar</button>
+            <tr>
+        </div>
+    </div>
+</body>
+
+</html>

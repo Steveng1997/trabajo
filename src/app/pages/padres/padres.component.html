@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Profesores</title>
+    <style href='../padres/padres.component.css'></style>
+</head>
+
+<body>
+    <div class="container-fluid position-absolute">
+        <div align="center">
+            <label class="textoPadres"> Padres: </label>
+            <input type="text" class="cuadrotexto1" placeholder="Busqueda" #txtSearch
+                (keyup)="onSearchPadres(txtSearch.value)">
+
+            <!-- Empleo -->
+            <label class="textoEmpleo">Empleo:</label>
+            <input type="text" class="cuadrotexto2" placeholder="Busqueda" #txtEmpleo
+                (keyup)="onSearchEmpleos(txtEmpleo.value )">
+
+            <!-- Edad -->
+            <label class="textoEdad">Edad:</label>
+            <input type="number" class="cuadrotexto3" placeholder="Busqueda" #txtEdad
+                (keyup)="onSearchEdad(txtEdad.value)">
+
+            <!-- botones -->
+            <br>
+            <button class="anterior" (click)="prevPage()" [disabled]="stopA">Atras</button>
+            <button class="siguiente" (click)="nextPage()" [disabled]="stop">Siguiente</button>
+            <br><br>
+            <table class="table">
+                <div align="center">
+                    <h2>Tabla de los padres</h2>
+                    <thead>
+                        <tr>
+                            <th>Padres</th>
+                            &nbsp;&nbsp;&nbsp;
+                            <th>Empleo</th>
+                            &nbsp;&nbsp;&nbsp;
+                            <th>Edad</th>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <th>Fecha</th>
+                            &nbsp;&nbsp;&nbsp;
+                            <th>Genero</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let padres of padrestab|filtro:page">
+                            <td>{{ padres.padres }}</td>
+                            &nbsp;&nbsp;
+                            <td>{{padres.empleo}}</td>
+                            &nbsp;&nbsp;
+                            <td>{{padres.edad}}</td>
+                            &nbsp;&nbsp;
+                            <td>{{padres.fecha}}</td>
+                            &nbsp;&nbsp;
+                            <td>{{padres.sexo ? "Hombre" : "Mujer"}}
+                            </td>
+                        </tr>
+                    </tbody>
+                </div>
+            </table>
+            <div>
+                <button align="center" (click)="aparecer()">Mostrar</button>
+                <div *ngIf="ocultarLabel">
+                    <br>
+                    <button align="center" (click)="ocultar()">Ocultar</button>
+                </div>
+                <br>
+                <app-compartido *ngIf="mostrarLabel"></app-compartido>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+.container-fluid{
+    padding-top: 0.5%;
+    padding-bottom: 25%;
+    background-image:url("https://aldanalaser.files.wordpress.com/2013/06/fondo-3.jpg?w=842");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    height: unset;
+}
+
+.textoPadres{
+    font-family: "Comic Sans MS";
+    font-size: 20px;
+    margin: 25px;
+}
+
+.textoEmpleo{
+    font-family: "Comic Sans MS";
+    font-size: 20px;
+    margin: 18px;
+}
+
+.textoEdad{
+    font-family: "Comic Sans MS";
+    font-size: 20px;
+    margin: 18px;
+}
+
+.cuadrotexto1{
+    margin-left: -18px;
+    font-size: 17px; 
+}
+
+.cuadrotexto2{
+    margin-left: -10px;
+    font-size: 17px; 
+}
+
+.cuadrotexto3{
+    margin-left: -10px;
+    font-size: 17px; 
+}
+
+.anterior{
+    font-family: "Comic Sans MS";
+    margin: 1px;
+    font-size: 20px;
+    border-color: white;
+    color: white;
+    background-color: royalblue;
+}
+
+.siguiente{
+    margin-left: 20px;
+    font-family: "Comic Sans MS";
+    font-size: 20px;
+    border-color: white;
+    color: white;
+    background-color: royalblue;
+}

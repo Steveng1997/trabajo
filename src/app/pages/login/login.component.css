@@ -1,0 +1,77 @@
+.cuerpo{
+    background: url(../image/login.png) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0;
+    box-sizing: border-box;
+}
+
+.contenedor{
+    width: 80%;
+    max-width: 1000px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.titulo{
+  margin: 100px;
+  margin-left: 70px;
+  text-align:center;
+  font-family: "Comic Sans MS";
+  font-size: 50px;
+  font-weight: bold;
+  color: white;
+  -webkit-text-stroke: 2px black;
+}
+
+.texto{
+    font-family: "Comic Sans MS";
+    font-size: 20px;    
+}
+
+.textoC{
+    font-family: "Comic Sans MS";
+    font-size: 20px;
+    margin-left: 475px;
+}
+
+.cuadrotexto{
+    margin-left: 129px;
+    font-size: 17px; 
+}
+
+.cuadrotexto1{
+    margin-left: 100px;
+    font-size: 14px; 
+}
+
+.botonIniciar{
+    font-family: "Comic Sans MS";
+    margin: 25px;
+    font-size: 17px;    
+}
+
+.botonRegistro{
+    font-family: "Comic Sans MS";
+    margin: 25px;
+    font-size: 17px;
+}
+
+/* @media screen and (max-width: 800px){
+    .contenedor {
+        width: 50%;
+    }.texto {
+        width: 50%;
+    } .textoC {
+        width: 50%;
+    } .cuadrotexto{
+        width: 50%;
+    } .cuadrotexto1{ 
+        width: 50%;}
+} */

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Registro</title>
+    <link href='../registro/registro.component.css'>
+</head>
+
+<body>
+    <div class="cuerpo">
+        <h1 class="titulo"> REGISTRO DE USUARIOS </h1>
+        <div align="center">
+            <label class="texto">Nombre:</label>
+            <input class="cuadrotexto" [(ngModel)]="textNombre" name="textNombre" type="text">
+            <br><br>
+            <label class="texto">Contraseña:</label>
+            <input class="cuadrotexto1" [(ngModel)]="textcontrasena" name="textcontraseña" type="text">
+            <br><br>
+            <label class="texto">Edad:</label>
+            <input class="cuadrotexto2" [(ngModel)]="textEdad" name="textEdad" type="number">
+            <br><br>
+            <label class="texto">Fecha Nacimiento:</label>
+            <input class="cuadrotexto3" [(ngModel)]="textFecha" name="textFecha" type="date">
+            <br><br>
+            <label class="texto">Genero:</label>
+            <select class="cuadrotexto4" name="seleccionados" [(ngModel)]="seleccionados">
+                <option value=""> Selecciona </option>
+                <option value="1"> Hombre </option>
+                <option value="0"> Mujer </option>
+            </select>
+            <br><br>
+            <button class="botonIniciar" (click)="InsertarRegistro()">Aceptar</button>
+            <button class="botonRegistro" (click)="login()">Cancelar</button>
+        </div>
+    </div>
+</body>
+
+</html>

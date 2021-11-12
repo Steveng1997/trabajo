@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Estudiantes</title>
+    <link href='../estudiantes/estudiantes.component.css'>
+</head>
+
+<body>
+    <div class="container-fluid position-absolute">
+
+        <div align="center">
+            <br> <br>
+            <label> Estudiantes: </label>
+            &nbsp;&nbsp;
+            <input type="text" placeholder="Busqueda" #txtSearch (keyup)="onSearchEstudiantes(txtSearch.value)">
+            &nbsp;&nbsp;
+
+            <!-- Telefono Fijo -->
+
+            <label> Telefono Fijo: </label>
+            &nbsp;&nbsp;
+            <input type="number" placeholder="Busqueda" #txtCelular (keyup)="onSearchCelular(txtCelular.value)">
+            &nbsp;&nbsp;
+
+            <!-- Edad -->
+
+            <label> Edad: </label>
+            &nbsp;&nbsp;
+            <input type="number" placeholder="Busqueda" #txtEdad (keyup)="onSearchEdad(txtEdad.value)">
+            <br><br>
+
+            <!-- botones -->
+            <button class="btn btn-primary" (click)="prevPage()">Anteriores</button>
+            &nbsp;&nbsp;
+            <button class="btn btn-primary" (click)="nextPage()"
+            [disabled]="(Estudiantestab | filtreses:page).length === 0">Siguientes</button>
+            <br><br><br>
+            <table class="table">
+                <div align="center">
+                    <h2>Estudiantes</h2>
+                    <thead>
+                        <tr>
+                            <th>Estudiantes</th>
+                            &nbsp;&nbsp;
+                            <th>Celular</th>
+                            &nbsp;&nbsp;
+                            <th>Telefono Fijo</th>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <th>Fecha Nacimiento</th>
+                            &nbsp;&nbsp;
+                            <th>Genero</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let estudiantx of Estudiantestab|filtreses:page">
+                            <td>{{estudiantx.estudiantes}}</td>
+                            &nbsp;&nbsp;
+                            <td>{{estudiantx.celular}}</td>
+                            &nbsp;&nbsp;
+                            <td>{{estudiantx.edad}}</td>
+                            &nbsp;&nbsp;
+                            <td>{{estudiantx.fecha}}</td>
+                            &nbsp;&nbsp;
+                            <td>{{estudiantx.sexo ? "Hombre" : "Mujer"}}</td>
+                            <button (click)="ConsultarporIds(estudiantx.estudiantes)">Modificar</button>
+                            <td><button (click)="EliminarEstudiantes(estudiantx.id)">Eliminar</button></td>
+                        </tr>
+                    </tbody>
+                </div>
+            </table>
+            <br><br>
+            <button (click)="ir()">Insertar Estudiantes</button>
+            <div>
+                <br>
+                <button align="center" (click)="aparecer()">Mostrar</button>
+                <div *ngIf="ocultarLabel">
+                    <button align="center" (click)="ocultar()">Ocultar</button>
+                </div>
+                <br> <br>
+                <app-compartido *ngIf="mostrarLabel"></app-compartido>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

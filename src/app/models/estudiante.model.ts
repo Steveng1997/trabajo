@@ -1,7 +1,7 @@
 export class Estudiante{
     id!: number;
     estudiantes!: string;
-    cantidad!: string;
+    celular!: string;
     edad!: string;
     fecha!: string;
     sexo!: string[];
